@@ -1,7 +1,7 @@
 argo-cd:
   server:
     ingress:
-      enable: true
+      enabled: true
       ingressClassName: traefik
       tls: false
     metrics: &metrics
