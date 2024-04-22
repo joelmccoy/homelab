@@ -31,6 +31,7 @@ argocd-apps:
           source:
             repoURL: *repoURL
             targetRevision: *revision
+            path: '{{path}}'
           syncPolicy:
             automated:
               prune: true
