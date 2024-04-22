@@ -1,0 +1,3 @@
+# Ignore argocd initial build artifacts
+/system/argocd/charts
+/system/argocd/chart.lock

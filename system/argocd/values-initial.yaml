@@ -1,0 +1,32 @@
+argo-cd:
+  server:
+    metrics: &metrics
+      enabled: false
+      serviceMonitor:
+        enabled: false
+  controller:
+    metrics: *metrics
+  repoServer:
+    metrics: *metrics
+  redis:
+    metrics: *metrics
+argocd-apps:
+  applicationsets:
+    root:
+      generators:
+        - git:
+            repoURL: &repoURL https://github.com/joelmccoy/homelab
+            revision: &revision main
+            directories:
+              - path: system/*
+      template:
+        metadata:
+          name: '{{path.basename}}'
+        spec:
+          project: default
+          destination:
+            name: in-cluster
+            namespace: '{{path.basename}}'
+          source:
+            repoURL: *repoURL
+            targetRevision: *revision
