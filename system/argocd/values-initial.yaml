@@ -13,9 +13,10 @@ argo-cd:
 argocd-apps:
   applicationsets:
     root:
+      namespace: argocd
       generators:
         - git:
-            repoURL: &repoURL https://github.com/joelmccoy/homelab
+            repoURL: &repoURL https://github.com/joelmccoy/homelab.git
             revision: &revision main
             directories:
               - path: system/*
@@ -30,3 +31,17 @@ argocd-apps:
           source:
             repoURL: *repoURL
             targetRevision: *revision
+          syncPolicy:
+            automated:
+              prune: true
+              selfHeal: true
+            retry:
+              limit: 10
+              backoff:
+                duration: 1m
+                factor: 2
+                maxDuration: 16m
+            syncOptions:
+              - CreateNamespace=true
+              - ApplyOutOfSyncOnly=true
+              - ServerSideApply=true
