@@ -1,0 +1,6 @@
+- hosts: all
+  tasks:
+    # Needed to run longhorn
+  - name : Install open-iscsi package
+    apt: name=open-iscsi state=present update_cache=true
+    become: true

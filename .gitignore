@@ -1,3 +1,6 @@
 # Ignore argocd initial build artifacts
 /system/argocd/charts
 /system/argocd/chart.lock
+
+# Ignore ansible inventory file
+/k3s/packages/inventory.yaml

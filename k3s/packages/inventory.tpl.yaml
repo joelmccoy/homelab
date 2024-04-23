@@ -1,0 +1,9 @@
+ungrouped:
+  hosts:
+    hostname0:
+    hostname1:
+    hostname2:
+
+  vars:
+    ansible_user: hostusername
+
