@@ -66,8 +66,8 @@ kube-prometheus-stack:
       storageSpec:
         volumeClaimTemplate:
           spec:
-           storageClassName: longhorn
-           accessModes: ["ReadWriteMany"]
-           resources:
-             requests:
-               storage: 5Gi
+            storageClassName: longhorn
+            accessModes: ["ReadWriteOnce"]
+            resources:
+              requests:
+                storage: 5Gi
