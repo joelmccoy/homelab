@@ -7,7 +7,10 @@ kube-prometheus-stack:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-staging
       hosts: ["alertmanager.labjoel.com"]
-      tls: ["alertmanager-tls"]
+      tls: 
+      - secretName: alertmanager-general-tls
+        hosts:
+        - alertmanager.labjoel.com
 
     # Setup persistent HA storage
     alertmanagerSpec:
@@ -29,7 +32,10 @@ kube-prometheus-stack:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-staging
       hosts: ["grafana.labjoel.com"]
-      tls: ["grafana-tls"]
+      tls: 
+      - secretName: grafana-general-tls
+        hosts:
+        - grafana.labjoel.com
 
     # Setup persistent HA storage
     persistence:
@@ -50,7 +56,10 @@ kube-prometheus-stack:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-staging
       hosts: ["prometheus.labjoel.com"]
-      tls: ["prometheus-tls"]
+      tls: 
+      - secretName: prometheus-general-tls
+        hosts:
+        - prometheus.labjoel.com
 
     prometheusSpec:
       storage:
