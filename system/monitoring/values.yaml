@@ -61,10 +61,11 @@ kube-prometheus-stack:
         hosts:
         - prometheus.labjoel.com
 
+    # Setup persistent HA storage
     prometheusSpec:
       storageSpec:
-       volumeClaimTemplate:
-         spec:
+        volumeClaimTemplate:
+          spec:
            storageClassName: longhorn
            accessModes: ["ReadWriteMany"]
            resources:
