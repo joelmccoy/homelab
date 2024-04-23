@@ -1,0 +1,60 @@
+kube-prometheus-stack:
+  ## Deploy alertmanager
+  alertmanager:
+    enabled: true
+    ingress:
+      enabled: true
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-staging
+      hosts: ["alertmanager.labjoel.com"]
+
+    # Setup persistent HA storage
+    alertmanagerSpec:
+      storage:
+       volumeClaimTemplate:
+         spec:
+           storageClassName: longhorn
+           accessModes: ["ReadWriteMany"]
+           resources:
+             requests:
+               storage: 5Gi
+
+
+  ## Using default values from https://github.com/grafana/helm-charts/blob/main/charts/grafana/values.yaml
+  grafana:
+    enabled: true
+    ingress:
+      enabled: true
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-staging
+      hosts: ["grafana.labjoel.com"]
+
+    # Setup persistent HA storage
+    persistence:
+      enabled: true
+      type: pvc
+      storageClassName: longhorn
+      accessModes:
+        - ReadWriteMany
+      size: 5Gi
+      finalizers:
+        - kubernetes.io/pvc-protection
+
+  ## Deploy a Prometheus instance
+  prometheus:
+    enabled: true
+    ingress:
+      enabled: true
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-staging
+      hosts: ["prometheus.labjoel.com"]
+
+    prometheusSpec:
+      storage:
+       volumeClaimTemplate:
+         spec:
+           storageClassName: longhorn
+           accessModes: ["ReadWriteMany"]
+           resources:
+             requests:
+               storage: 5Gi
