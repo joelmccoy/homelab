@@ -3,13 +3,15 @@ argo-cd:
     domain: argocd.labjoel.com
   configs:
     params:
-      server.insecure: true
       controller.diff.server.side: true
   server:
     ingress:
       enabled: true
       ingressClassName: traefik
-      tls: false
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-staging
+      tls: true
+      # TODO: Enable this when prometheus is up
     metrics: &metrics
       enabled: false
       serviceMonitor:
