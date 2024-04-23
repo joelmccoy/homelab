@@ -5,7 +5,7 @@ kube-prometheus-stack:
     ingress:
       enabled: true
       annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-staging
+        cert-manager.io/cluster-issuer: letsencrypt-prod
       hosts: ["alertmanager.labjoel.com"]
       tls: 
       - secretName: alertmanager-general-tls
@@ -30,7 +30,7 @@ kube-prometheus-stack:
     ingress:
       enabled: true
       annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-staging
+        cert-manager.io/cluster-issuer: letsencrypt-prod
       hosts: ["grafana.labjoel.com"]
       tls: 
       - secretName: grafana-general-tls
@@ -54,7 +54,7 @@ kube-prometheus-stack:
     ingress:
       enabled: true
       annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-staging
+        cert-manager.io/cluster-issuer: letsencrypt-prod
       hosts: ["prometheus.labjoel.com"]
       tls: 
       - secretName: prometheus-general-tls
