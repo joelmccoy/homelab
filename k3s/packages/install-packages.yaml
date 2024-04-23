@@ -1,6 +1,11 @@
 - hosts: all
   tasks:
-    # Needed to run longhorn
-  - name : Install open-iscsi package
-    apt: name=open-iscsi state=present update_cache=true
+  - name : Install packages required to use longhorn
+    apt:
+      name: "{{ item }}"
+      state: present
+      update_cache: true
+    loop:
+      - open-iscsi
+      - nfs-common
     become: true
