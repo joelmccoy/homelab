@@ -3,7 +3,7 @@ argo-cd:
     domain: argocd.labjoel.com
   configs:
     params:
-      server.insecure: false
+      server.insecure: true
       controller.diff.server.side: true
   server:
     ingress:
