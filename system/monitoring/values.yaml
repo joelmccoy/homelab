@@ -62,7 +62,7 @@ kube-prometheus-stack:
         - prometheus.labjoel.com
 
     prometheusSpec:
-      storage:
+      storageSpec:
        volumeClaimTemplate:
          spec:
            storageClassName: longhorn
