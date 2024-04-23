@@ -405,7 +405,7 @@ ingress:
   ingressClassName: traefik
 
   # -- Hostname of the Layer 7 load balancer.
-  host: sslip.io
+  host: longhorn.labjoel.com
 
   # -- Setting that allows you to enable TLS on ingress records.
   tls: true
@@ -427,8 +427,8 @@ ingress:
   ##
   ## If tls is set to true, annotation ingress.kubernetes.io/secure-backends: "true" will automatically be set
   # -- Ingress annotations in the form of key-value pairs.
-  # annotations:
-  #   cert-manager.io/cluster-issuer: letsencrypt-staging
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-staging
   #  kubernetes.io/ingress.class: nginx
   #  kubernetes.io/tls-acme: true
 
