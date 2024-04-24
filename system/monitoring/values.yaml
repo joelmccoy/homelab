@@ -31,7 +31,6 @@ kube-prometheus-stack:
       enabled: true
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
-        ingress.kubernetes.io/protocol: https
       hosts: ["grafana.labjoel.com"]
       tls: 
       - secretName: grafana-general-tls
