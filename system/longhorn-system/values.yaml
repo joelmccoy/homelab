@@ -25,3 +25,7 @@ longhorn:
     # -- Ingress annotations in the form of key-value pairs.
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
+
+  persistence:
+    # -- Reclaim policy that provides instructions for handling of a volume after its claim is released. (Options: "Retain", "Delete")
+    reclaimPolicy: Retain
