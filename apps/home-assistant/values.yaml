@@ -37,3 +37,12 @@ home-assistant:
     # Storage class for the persistent volume claim
     storageClass: "longhorn"
 
+  additionalVolumes: 
+  - name: configmap-file
+    configMap:
+      name: home-assistant-configmap
+
+  additionalMounts:
+  - mountPath: /config/configuration.yaml
+    subPath: configuration.yaml
+    name: configmap-file
