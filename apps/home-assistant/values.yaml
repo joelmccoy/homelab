@@ -13,7 +13,7 @@ home-assistant:
   ingress:
     # Enable ingress for home assistant
     enabled: true
-    className: ""
+    className: traefik
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
     hosts:
