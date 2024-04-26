@@ -15,7 +15,7 @@ home-assistant:
     enabled: true
     className: ""
     annotations:
-      cert-manager.io/cluster-issuer: letsencrypt-staging
+      cert-manager.io/cluster-issuer: letsencrypt-prod
     hosts:
       - host: homeassistant.labjoel.com
         paths:
