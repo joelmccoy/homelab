@@ -94,6 +94,9 @@ postgresql:
     # grabs the user password from the telsamate-secret
     existingSecret: teslamate-secret
     username: teslamate
+    adminPasswordKey: DATABASE_PASS
+    userPasswordKey: DATABASE_PASS
+    database: teslamate
   primary:
     persistence:
       enabled: true
