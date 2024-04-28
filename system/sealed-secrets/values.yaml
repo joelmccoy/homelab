@@ -1,0 +1,41 @@
+fullnameOverride: sealed-secrets-controller
+image:
+  registry: docker.io
+  repository: bitnami/sealed-secrets-controller
+  tag: 0.26.2
+  pullPolicy: IfNotPresent
+secretName: "sealed-secrets-key"
+
+ingress:
+  enabled: true
+  pathType: ImplementationSpecific
+  ingressClassName: "traefik"
+  hostname: sealed-secrets.labjoel.com
+  path: /v1/cert.pem
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-staging
+  ## @param ingress.tls Enable TLS configuration for the host defined at `ingress.hostname` parameter
+  ## TLS certificates will be retrieved from a TLS secret with name: `{{- printf "%s-tls" .Values.ingress.hostname }}`
+  ## You can:
+  ##   - Use the `ingress.secrets` parameter to create this TLS secret
+  ##   - Relay on cert-manager to create it by setting the corresponding annotations
+  ##   - Relay on Helm to create self-signed certificates by setting `ingress.selfSigned=true`
+  ##
+  tls: true
+
+metrics:
+  ## Prometheus Operator ServiceMonitor configuration
+  ##
+  serviceMonitor:
+    ## @param metrics.serviceMonitor.enabled Specify if a ServiceMonitor will be deployed for Prometheus Operator
+    enabled: true
+    ## @param metrics.serviceMonitor.namespace Namespace where Prometheus Operator is running in
+    namespace: "monitoring"
+
+  ## Grafana dashboards configuration
+  dashboards:
+    ## @param metrics.dashboards.create Specifies whether a ConfigMap with a Grafana dashboard configuration should be created
+    ## ref https://github.com/helm/charts/tree/master/stable/grafana#configuration
+    ##
+    create: true
+    namespace: "monitoring"
