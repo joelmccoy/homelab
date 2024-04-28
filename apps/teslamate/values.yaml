@@ -78,7 +78,7 @@ app-template:
       enabled: true
       className: traefik
       annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-staging
+        cert-manager.io/cluster-issuer: letsencrypt-prod
       hosts:
         - host: &host teslamate.labjoel.com
           paths:
