@@ -88,6 +88,7 @@ app-template:
       tls:
         - hosts:
             - *host
+          secretName: teslamate-tls
 
 postgresql:
   auth:
