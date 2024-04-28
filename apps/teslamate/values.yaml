@@ -87,7 +87,9 @@ app-template:
 
 postgresql:
   auth:
+    # grabs the user password from the telsamate-secret
     existingSecret: teslamate-secret
+    username: teslamate
   primary:
     persistence:
       enabled: true
