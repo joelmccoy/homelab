@@ -1,15 +1,8 @@
 # Create the Tesla Sealed Secret
 
-Create secrets.env (Will not be checked into git)
+Use the tpl file secrets.env and replace values
 ```
-ENCRYPTION_KEY="REPLACE_WITH_RANDOM_STRING"
-DATABASE_NAME="teslamate"
-DATABASE_HOST="postgres-v15-rw.teslamate.svc.cluster.local"
-DATABASE_PASS="REPLACE_WITH_DATABASE_PASS"
-DATABASE_USER="teslamate"
-POSTGRES_DB="teslamate"
-POSTGRES_PASS="REPLACE_WITH_DATABASE_PASS"
-POSTGRES_USER="teslamate"
+cp secrets.env.tpl secrets.env
 ```
 
 Create the sealed secret
