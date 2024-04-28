@@ -26,6 +26,10 @@ app-template:
             # -- Set the container timezone
             TZ: America/Chicago
             DISABLE_MQTT: true
+            DATABASE_HOST: teslamate-postgresql.teslamate.svc.cluster.local
+            DATABASE_NAME: teslamate
+            DATABASE_USER: teslamate
+            POSTGRES_DB: teslamate
 
           envFrom:
             - secretRef:
