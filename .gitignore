@@ -4,3 +4,6 @@
 
 # Ignore ansible inventory file
 /k3s/packages/inventory.yaml
+
+# Ignore secrets
+secrets.env

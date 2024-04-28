@@ -1,0 +1,46 @@
+app-template:
+  image:
+    repository: teslamate/teslamate
+    tag: 1.28.5
+
+  # -- environment variables. See [teslamate docs](https://docs.teslamate.org/docs/configuration/environment_variables) for more details.
+  # @default -- See below
+  env:
+    # -- Set the container timezone
+    TZ: America/Chicago
+    # -- Postgres database hostname
+    DISABLE_MQTT: true
+
+  envFrom:
+    - secretRef:
+        name: teslamate-secret
+
+  # -- Configures service settings for the chart.
+  service:
+    main:
+      type: ClusterIP
+      ports:
+        http:
+          port: 4000
+
+    # -- Enable and configure ingress settings for the chart under this key.
+  ingress:
+    main:
+      enabled: true
+      ingressClassName: traefik
+      hosts:
+        - host: &host teslamate.labjoel.com
+          paths:
+            - path: /
+      tls:
+        - hosts:
+            - *host
+
+postgresql:
+  auth:
+    existingSecret: teslamate-secret
+  primary:
+    persistence:
+      enabled: true
+      size: 15Gi
+      storageClass: longhorn
