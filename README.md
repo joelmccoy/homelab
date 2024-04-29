@@ -117,7 +117,7 @@ Tools used for managing the cluster
         <td>:x:</td>
     </tr>
     <tr>
-        <td><img width="32" src="https://k3s.io/img/k3s-logo-light.svg"></td>
+        <td><img width="32" src="https://icon.icepanel.io/Technology/svg/K3s.svg"></td>
         <td><a href="https://k3s.io/">k3s</a></td>
         <td>A lightweight Kubernetes distribution.</td>
         <td>:x:</td>
