@@ -132,7 +132,8 @@ Deploy ArgoCD to the Kubernetes Cluster
 ```bash
 cd system & make bootstrap
 ```
-*Note: ArgoCD needs setup first so all other apps and tools can be deployed*
+> [!NOTE]  
+> ArgoCD needs setup first so all other apps and tools can be deployed
 
 ## :heavy_check_mark: TODO 
 
