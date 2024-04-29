@@ -9,7 +9,7 @@ All apps are deployed/configured via GitOps using ArgoCD.
 <details>
     <summary>Hardware Specs</summary>
     
-    this is fine
+    ### this is fine
     * blah
     * blah
 </details>
