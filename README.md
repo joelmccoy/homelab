@@ -6,7 +6,9 @@ All apps are deployed/configured via GitOps using ArgoCD.
 
 ## :computer: Hardware
 
-### 3x Nodes:
+The cluster is running HA k3s with all nodes being both a master and a worker node.
+
+3x Nodes:
 
 * **Model**: Lenovo Thinkcentre M900 Tiny
 * **CPU**: Intel i5-6500T
