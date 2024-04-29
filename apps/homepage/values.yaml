@@ -51,7 +51,7 @@ homepage:
           - Github:
               - abbr: GH
                 href: https://github.com/joelmccoy
-                icone: github.svg
+                icon: github.svg
     services:
       - Apps:
           - Teslamate:
