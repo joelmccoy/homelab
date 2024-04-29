@@ -39,7 +39,7 @@ The cluster is running HA k3s with all nodes being both a master and a worker no
         <td>:x:</td>
     </tr>
     <tr>
-        <td><img width="32" src="https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/telsamate.svg"></td>
+        <td><img width="32" src="https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/teslamate.svg"></td>
         <td><a href="https://github.com/teslamate-org/teslamate">TeslaMate</a></td>
         <td>A powerful, self-hosted data logger for your Tesla.</td>
         <td>:x:</td>
