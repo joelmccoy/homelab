@@ -8,11 +8,11 @@ All apps are deployed/configured via GitOps using ArgoCD.
 
 <details>
     <summary>Hardware Specs</summary>
-
+    
     this is fine
-    1. blah
-    2. blah
-
+    * blah
+    * blah
+    
 </details>
 
 ## 3x Nodes:
