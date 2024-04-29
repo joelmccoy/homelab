@@ -6,8 +6,8 @@ All apps are deployed/configured via GitOps using ArgoCD.
 
 ## :computer: Hardware
 
-<details>
-    <summary>Hardware Specs</summary>
+<details markdown=1>
+    <summary markdown="span">Hardware Specs</summary>
     * blah
     * blah
 </details>
