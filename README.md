@@ -16,8 +16,23 @@ The cluster is running HA k3s with all nodes being both a master and a worker no
 * **Storage**: 256GB SSDs
 * **OS**: Debian 12
 
-## :rocket: Installed Apps
-TODO
+## :rocket: Installed Apps & Tools
+
+### Apps
+<table>
+    <tr>
+        <th>Logo</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Public?</th>
+    </tr>
+    <tr>
+        <td><img width="32" src="https://simpleicons.org/icons/homeassistant.svg"></td>
+        <td><a href="https://www.home-assistant.io/">Home Assistant</a></td>
+        <td>Smart home integrations and automations.</td>
+    </tr>
+</table>
+
 
 ## :gear: Bootstrapping Steps
 
