@@ -1,6 +1,6 @@
 homepage:
   image:
-    repository: ghcr.io/benphelps/homepage
+    repository: ghcr.io/benphelps/homepage:0.8.12
 
   # Enable RBAC. RBAC is necessary to use Kubernetes integration
   enableRbac: true
@@ -51,6 +51,7 @@ homepage:
           - Github:
               - abbr: GH
                 href: https://github.com/joelmccoy
+                icone: github.svg
     services:
       - Apps:
           - Teslamate:
