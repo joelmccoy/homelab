@@ -6,10 +6,12 @@ All apps are deployed/configured via GitOps using ArgoCD.
 
 ## :computer: Hardware
 
-<details markdown=1>
-    <summary markdown="span">Hardware Specs</summary>
-    * blah
-    * blah
+<details>
+    <summary>Hardware Specs</summary>
+    <div markdown="1">
+        * blah
+        * blah
+    </div>
 </details>
 
 ## 3x Nodes:
