@@ -11,8 +11,10 @@ All apps are deployed/configured via GitOps using ArgoCD.
     
     this is fine
 
-    * blah
-    * blah
+    <ul>
+        <li>blah</li>
+        <li>blah</li>
+    </ul>
     
 </details>
 
