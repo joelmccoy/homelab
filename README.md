@@ -19,6 +19,7 @@ The cluster is running HA k3s with all nodes being both a master and a worker no
 ## :rocket: Installed Apps & Tools
 
 ### Apps
+End User Applications
 <table>
     <tr>
         <th>Logo</th>
@@ -46,6 +47,58 @@ The cluster is running HA k3s with all nodes being both a master and a worker no
     </tr>
 </table>
 
+### System
+Applications/services core to the cluster
+<table>
+    <tr>
+        <th>Logo</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Public?</th>
+    </tr>
+    <tr>
+        <td><img width="32" src="https://simpleicons.org/icons/argocd.svg"></td>
+        <td><a href="https://argo-cd.readthedocs.io/en/stable/">ArgoCD</a></td>
+        <td>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes.</td>
+        <td>:x:</td>
+    </tr>
+    <tr>
+        <td><img width="32" src="https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/cert-manager.svg"></td>
+        <td><a href="https://cert-manager.io/">cert-manager</a></td>
+        <td>X.509 certificate management for Kubernetes.</td>
+        <td>:x:</td>
+    </tr>
+    <tr>
+        <td><img width="32" src="https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/grafana.svg"></td>
+        <td><a href="https://grafana.com/">Grafana</a></td>
+        <td>The open observability platform.</td>
+        <td>:x:</td>
+    </tr>
+    <tr>
+        <td><img width="32" src="https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/longhorn.svg"></td>
+        <td><a href="https://longhorn.io/">Longhorn</a></td>
+        <td>Cloud native distributed block storage for Kubernetes.</td>
+        <td>:x:</td>
+    </tr>
+    <tr>
+        <td><img width="32" src="https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/prometheus.svg"></td>
+        <td><a href="https://prometheus.io/">Prometheus</a></td>
+        <td>An open-source monitoring system with a dimensional data model, flexible query language, efficient time series database and modern alerting approach.</td>
+        <td>:x:</td>
+    </tr>
+    <tr>
+        <td><img width="32" src="https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/traefik.svg"></td>
+        <td><a href="https://traefik.io/traefik/">Traefik</a></td>
+        <td>Used as the Kubernetes ingress controller/reverse proxy.</td>
+        <td>:x:</td>
+    </tr>
+    <tr>
+        <td><img width="32" src="https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/github.svg"></td>
+        <td><a href="https://github.com/bitnami-labs/sealed-secrets">Sealed Secrets</a></td>
+        <td>A Kubernetes controller and tool for one-way encrypted Secrets.</td>
+        <td>:x:</td>
+    </tr>
+</table>
 
 ## :gear: Bootstrapping Steps
 
