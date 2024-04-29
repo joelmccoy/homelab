@@ -9,10 +9,12 @@ All apps are deployed/configured via GitOps using ArgoCD.
 <details>
     <summary>Hardware Specs</summary>
     <div markdown="1">
+
 this is fine
     * blah
     * blah
     </div>
+
 </details>
 
 ## 3x Nodes:
