@@ -58,11 +58,13 @@ homepage:
           - Teslamate:
               href: https://teslamate.labjoel.com/
               description: Teslamate
+              icon: tesla.svg
 
       - Infra Services:
           - Longhorn:
               href: https://longhorn.labjoel.com/
               description: Longhorn Storage for Kubernetes
+              icon: longhorn.svg
 
     widgets:
       - resources:
