@@ -63,7 +63,7 @@ homepage:
               description: Fun data shenanigans with my Tesla
               icon: teslamate.svg
           - Home Assistant:
-              href: https://home-assistant.labjoel.com/
+              href: https://homeassistant.labjoel.com/
               description: Automating my home
               icon: home-assistant-alt.svg
 
