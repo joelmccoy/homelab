@@ -93,7 +93,7 @@ Applications/services core to the cluster
         <td>:x:</td>
     </tr>
     <tr>
-        <td><img width="32" src="https://www.svgrepo.com/download/484416/key.svg"></td>
+        <td><img width="32" src="https://www.svgrepo.com/download/477066/lock.svg"></td>
         <td><a href="https://github.com/bitnami-labs/sealed-secrets">Sealed Secrets</a></td>
         <td>A Kubernetes controller and tool for one-way encrypted Secrets.</td>
         <td>:x:</td>
