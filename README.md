@@ -6,7 +6,7 @@ All apps are deployed/configured via GitOps using ArgoCD.
 
 ## :computer: Hardware
 
-<deatails>
+<details>
   <summary>Hardware Specs</summary>
   3x Nodes:
   - **Model**: Lenovo Thinkcentre M900 Tiny
