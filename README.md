@@ -28,13 +28,13 @@ End User Applications
         <th>Public?</th>
     </tr>
     <tr>
-        <td><img width="32" src="https://simpleicons.org/icons/homeassistant.svg"></td>
+        <td><img width="32" src="https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/home-assistant-alt.svg"></td>
         <td><a href="https://www.home-assistant.io/">Home Assistant</a></td>
         <td>Smart home integrations and automations.</td>
         <td>:x:</td>
     </tr>
     <tr>
-        <td><img width="32" src="https://simpleicons.org/icons/github.svg"></td>
+        <td><img width="32" src="https://www.svgrepo.com/download/499807/home-page.svg"></td>
         <td><a href="https://github.com/gethomepage/homepage">Home Page</a></td>
         <td>Home landing page for all apps and services.</td>
         <td>:x:</td>
@@ -93,7 +93,7 @@ Applications/services core to the cluster
         <td>:x:</td>
     </tr>
     <tr>
-        <td><img width="32" src="https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/github.svg"></td>
+        <td><img width="32" src="https://www.svgrepo.com/download/484416/key.svg"></td>
         <td><a href="https://github.com/bitnami-labs/sealed-secrets">Sealed Secrets</a></td>
         <td>A Kubernetes controller and tool for one-way encrypted Secrets.</td>
         <td>:x:</td>
