@@ -8,7 +8,7 @@ All apps are deployed/configured via GitOps using ArgoCD.
 
 The cluster is running HA k3s with all nodes being both a master and a worker node.
 
-3x Nodes:
+:green_circle: 3x Nodes :green_circle:
 
 * **Model**: Lenovo Thinkcentre M900 Tiny
 * **CPU**: Intel i5-6500T
@@ -57,7 +57,7 @@ Applications/services core to the cluster
         <th>Public?</th>
     </tr>
     <tr>
-        <td><img width="32" src="https://simpleicons.org/icons/argocd.svg"></td>
+        <td><img width="32" src="https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/argocd.svg"></td>
         <td><a href="https://argo-cd.readthedocs.io/en/stable/">ArgoCD</a></td>
         <td>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes.</td>
         <td>:x:</td>
@@ -100,6 +100,31 @@ Applications/services core to the cluster
     </tr>
 </table>
 
+### Tools
+Tools used for managing the cluster
+
+<table>
+    <tr>
+        <th>Logo</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Public?</th>
+    </tr>
+    <tr>
+        <td><img width="32" src="https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/ansible.svg"></td>
+        <td><a href="https://www.ansible.com/">Ansible</a></td>
+        <td>An automation platform for bootstrapping the physical nodes.</td>
+        <td>:x:</td>
+    </tr>
+    <tr>
+        <td><img width="32" src="https://simpleicons.org/icons/k3s.svg"></td>
+        <td><a href="https://k3s.io/">k3s</a></td>
+        <td>A lightweight Kubernetes distribution.</td>
+        <td>:x:</td>
+    </tr>
+</table>
+
+
 ## :gear: Bootstrapping Steps
 
 Deploy ArgoCD to the Kubernetes Cluster
@@ -110,4 +135,7 @@ cd system & make bootstrap
 *Note: ArgoCD needs setup first so all other apps and tools can be deployed*
 
 ## :heavy_check_mark: TODO 
-TODO
+
+- [ ] Setup federated identity for apps
+- [ ] Setup cloudflare tunnel for public access
+
