@@ -30,6 +30,7 @@ The cluster is running HA k3s with all nodes being both a master and a worker no
         <td><img width="32" src="https://simpleicons.org/icons/homeassistant.svg"></td>
         <td><a href="https://www.home-assistant.io/">Home Assistant</a></td>
         <td>Smart home integrations and automations.</td>
+        <td>:x:</td>
     </tr>
 </table>
 
