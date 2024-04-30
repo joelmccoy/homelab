@@ -109,7 +109,7 @@ Tools used for managing the cluster
     </tr>
 </table>
 
-## :gear: Demo/Images
+## :camera: Demo/Images
 
 ### Home Page
 ![Home Page](./img/homepage.png)
