@@ -1,0 +1,7 @@
+apiVersion: v2
+name: ory
+version: 0.0.0
+dependencies:
+  - name: kratos
+    version: 0.41.0
+    repository: https://k8s.ory.sh/helm/charts
