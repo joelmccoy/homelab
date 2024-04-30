@@ -7,3 +7,5 @@
 
 # Ignore secrets
 secrets.env
+
+.DS_Store

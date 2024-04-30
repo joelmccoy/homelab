@@ -109,6 +109,10 @@ Tools used for managing the cluster
     </tr>
 </table>
 
+## :gear: Demo/Images
+
+### Home Page
+![Home Page](./img/homepage.png)
 
 ## :gear: Bootstrapping Steps
 
