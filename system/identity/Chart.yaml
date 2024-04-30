@@ -1,7 +1,10 @@
 apiVersion: v2
-name: ory
+name: identity
 version: 0.0.0
 dependencies:
   - name: kratos
     version: 0.41.0
     repository: https://k8s.ory.sh/helm/charts
+  - name: postgresql
+    version: "15.2.5"
+    repository: https://charts.bitnami.com/bitnami

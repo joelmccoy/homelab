@@ -6,6 +6,6 @@
 /k3s/packages/inventory.yaml
 
 # Ignore secrets
-secrets.env
+*secrets.env
 
 .DS_Store

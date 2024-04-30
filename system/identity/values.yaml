@@ -20,9 +20,9 @@ kratos:
   ## -- Secret management
   secret:
     # -- switch to false to prevent creating the secret
-    enabled: true
+    enabled: false
     # -- Provide custom name of existing secret, or custom name of secret to be created
-    nameOverride: ""
+    nameOverride: "kratos-secret"
 
   ## -- Ingress definition
   ingress:
@@ -128,3 +128,17 @@ kratos:
     # -- TLS configuration to use when scraping the endpoint
     tlsConfig: {}
 
+postgresql:
+  auth:
+    # grabs the user password from the postgres-secret
+    existingSecret: postgres-secret
+    username: kratos
+    database: kratos
+    secretKeys:
+      adminPasswordKey: DATABASE_PASS
+      userPasswordKey: DATABASE_PASS
+  primary:
+    persistence:
+      enabled: true
+      size: 10Gi
+      storageClass: longhorn
