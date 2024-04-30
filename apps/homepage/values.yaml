@@ -102,11 +102,6 @@ homepage:
             cpu: true
             memory: true
             showLabel: true
-      - longhorn:
-          expanded: true
-          total: true
-          labels: true
-          nodes: true
 
     kubernetes:
       # change mode to 'cluster' to use RBAC service account
