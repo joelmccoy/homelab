@@ -155,7 +155,7 @@ authentik:
             service:
               name: authentik-server
               port:
-                name: 80
+                number: 80
 
       # -- ingress TLS configuration
       tls:
