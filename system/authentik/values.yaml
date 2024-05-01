@@ -181,6 +181,9 @@ authentik:
       username: authentik
       database: authentik
       existingSecret: postgresql-secret
+      secretKeys:
+        adminPasswordKey: POSTGRES_PASSWORD
+        userPasswordKey: POSTGRES_PASSWORD
     primary:
       extendedConfiguration: |
         max_connections = 500
