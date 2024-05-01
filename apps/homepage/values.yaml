@@ -75,6 +75,10 @@ homepage:
               href: https://argocd.labjoel.com/
               description: GitOps for my cluster
               icon: argocd.svg
+          - Authentik:
+              href: https://authentik.labjoel.com/
+              description: SSO for my services
+              icon: authentik.png
           - Grafana:
               href: https://grafana.labjoel.com/
               description: Monitoring and dashboards
