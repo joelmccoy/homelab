@@ -55,6 +55,7 @@ kube-prometheus-stack:
       enabled: true
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
+        traefik.ingress.kubernetes.io/router.middlewares: traefik-forward-auth-to-authentik@kubernetescrd
       hosts: ["prometheus.labjoel.com"]
       tls: 
       - secretName: prometheus-general-tls

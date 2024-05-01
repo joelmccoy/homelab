@@ -25,6 +25,7 @@ longhorn:
     # -- Ingress annotations in the form of key-value pairs.
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
+      traefik.ingress.kubernetes.io/router.middlewares: traefik-forward-auth-to-authentik@kubernetescrd
 
   persistence:
     # -- Reclaim policy that provides instructions for handling of a volume after its claim is released. (Options: "Retain", "Delete")
