@@ -147,6 +147,7 @@ app-template:
       className: traefik
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
+        traefik.ingress.kubernetes.io/router.middlewares: traefik-forward-auth-to-authentik@kubernetescrd
       hosts:
         - host: &host teslamate.labjoel.com
           paths:
