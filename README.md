@@ -57,7 +57,7 @@ Applications/services core to the cluster
         <td>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes.</td>
     </tr>
     <tr>
-        <td><img width="32" src="https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/authentik.png"></td>
+        <td><img width="32" src="https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/authentik.png"></td>
         <td><a href="https://goauthentik.io/">Authentik</a></td>
         <td>Used for SSO and other auth workflows.</td>
     </tr>
