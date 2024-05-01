@@ -21,7 +21,7 @@ argo-cd:
                 - profile
                 - email
     rbac:
-      policy: |
+      policy.csv: |
         g, ArgoCD Admins, role:admin
 
   server:
