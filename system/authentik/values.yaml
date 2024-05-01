@@ -1,0 +1,199 @@
+global:
+  # Default image used by all authentik components. For GeoIP configuration, see the geoip values below.
+  image:
+    # -- If defined, a repository applied to all authentik deployments
+    repository: ghcr.io/goauthentik/server
+    # -- Overrides the global authentik whose default is the chart appVersion
+    tag: 2024.4.1
+
+  # -- Toggle and define pod-level security context.
+  # @default -- `{}` (See [values.yaml])
+  securityContext:
+    runAsUser: 1000
+    runAsGroup: 1000
+    fsGroup: 1000
+
+  # -- envFrom to pass to all deployed Deployments. Does not apply to GeoIP
+  # @default -- `[]` (See [values.yaml])
+  envFrom:
+    - secretRef:
+        name: authentic-secret
+
+
+## Authentik configuration
+authentik:
+  # -- Log level for server and worker
+  log_level: info
+  # -- Secret key used for cookie singing and unique user IDs,
+  # don't change this after the first install
+  events:
+    context_processors:
+      # -- Path for the GeoIP City database. If the file doesn't exist, GeoIP features are disabled.
+      geoip: /geoip/GeoLite2-City.mmdb
+      # -- Path for the GeoIP ASN database. If the file doesn't exist, GeoIP features are disabled.
+      asn: /geoip/GeoLite2-ASN.mmdb
+  email:
+    # -- SMTP Server emails are sent from, fully optional
+    host: ""
+    # -- SMTP server port
+    port: 587
+    # -- SMTP credentials, when left empty, no authentication will be done
+    username: ""
+    # -- SMTP credentials, when left empty, no authentication will be done
+    password: ""
+    # -- Enable either use_tls or use_ssl, they can't be enabled at the same time.
+    use_tls: false
+    # -- Enable either use_tls or use_ssl, they can't be enabled at the same time.
+    use_ssl: false
+    # -- Connection timeout
+    timeout: 30
+    # -- Email from address, can either be in the format "foo@bar.baz" or "authentik <foo@bar.baz>"
+    from: ""
+  outposts:
+    # -- Template used for managed outposts. The following placeholders can be used
+    # %(type)s - the type of the outpost
+    # %(version)s - version of your authentik install
+    # %(build_hash)s - only for beta versions, the build hash of the image
+    container_image_base: ghcr.io/goauthentik/%(type)s:%(version)s
+  error_reporting:
+    # -- This sends anonymous usage-data, stack traces on errors and
+    # performance data to sentry.beryju.org, and is fully opt-in
+    enabled: false
+    # -- This is a string that is sent to sentry with your error reports
+    environment: "k8s"
+    # -- Send PII (Personally identifiable information) data to sentry
+    send_pii: false
+  postgresql:
+    # -- set the postgresql hostname to talk to
+    # if unset and .Values.postgresql.enabled == true, will generate the default
+    # @default -- `{{ .Release.Name }}-postgresql`
+    host: "{{ .Release.Name }}-postgresql"
+    # -- postgresql Database name
+    # @default -- `authentik`
+    name: "authentik"
+    # -- postgresql Username
+    # @default -- `authentik`
+    user: "authentik"
+    password: ""
+    port: 5432
+  redis:
+    # -- set the redis hostname to talk to
+    # @default -- `{{ .Release.Name }}-redis-master`
+    host: "{{ .Release.Name }}-redis-master"
+    password: ""
+
+
+blueprints:
+  # -- List of config maps to mount blueprints from.
+  # Only keys in the configMap ending with `.yaml` will be discovered and applied.
+  configMaps: []
+  # -- List of secrets to mount blueprints from.
+  # Only keys in the secret ending with `.yaml` will be discovered and applied.
+  secrets: []
+
+
+## authentik server
+server:
+  # -- authentik server name
+  name: server
+
+  # -- The number of server pods to run
+  replicas: 1
+
+  ## authentik server metrics service configuration
+  metrics:
+    # -- deploy metrics service
+    enabled: true
+    serviceMonitor:
+      # -- enable a prometheus ServiceMonitor
+      enabled: true
+      # -- Prometheus ServiceMonitor interval
+      interval: 30s
+      # -- Prometheus ServiceMonitor scrape timeout
+      scrapeTimeout: 3s
+      # -- Prometheus [RelabelConfigs] to apply to samples before scraping
+      relabelings: []
+      # -- Prometheus [MetricsRelabelConfigs] to apply to samples before ingestion
+      metricRelabelings: []
+      # -- Prometheus ServiceMonitor selector
+      selector: {}
+        # prometheus: kube-prometheus
+
+      # -- Prometheus ServiceMonitor scheme
+      scheme: ""
+      # -- Prometheus ServiceMonitor tlsConfig
+      tlsConfig: {}
+      # -- Prometheus ServiceMonitor namespace
+      namespace: ""
+      # -- Prometheus ServiceMonitor labels
+      labels: {}
+      # -- Prometheus ServiceMonitor annotations
+      annotations: {}
+
+  ingress:
+    # -- enable an ingress resource for the authentik server
+    enabled: true
+    # -- additional ingress annotations
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+    # -- defines which ingress controller will implement the resource
+    ingressClassName: "traefik"
+    # -- List of ingress hosts
+    hosts: 
+      - authentik.labjoel.com
+
+    # -- List of ingress paths
+    paths:
+      - /
+    pathType: Prefix
+
+    # -- ingress TLS configuration
+    tls:
+      - secretName: authentik-tls
+        hosts:
+          - authentik.labjoel.com
+
+    # -- uses `server.service.servicePortHttps` instead of `server.service.servicePortHttp`
+    https: true
+
+## authentik worker
+worker:
+  # -- authentik worker name
+  name: worker
+
+  # -- The number of worker pods to run
+  replicas: 1
+
+prometheus:
+  rules:
+    enabled: true
+    # -- PrometheusRule namespace
+    namespace: "monitoring"
+    # -- PrometheusRule selector
+    selector: {}
+      # prometheus: kube-prometheus
+
+postgresql:
+  # -- enable the Bitnami PostgreSQL chart. Refer to https://github.com/bitnami/charts/blob/main/bitnami/postgresql/ for possible values.
+  enabled: true
+  auth:
+    username: authentik
+    database: authentik
+    existingSecret: postgresql-secret
+  primary:
+    extendedConfiguration: |
+      max_connections = 500
+    persistence:
+      enabled: true
+      storageClass: longhorn
+      size: 5Gi
+      accessModes:
+        - ReadWriteMany
+
+redis:
+  # -- enable the Bitnami Redis chart. Refer to https://github.com/bitnami/charts/blob/main/bitnami/redis/ for possible values.
+  enabled: true
+  architecture: standalone
+  auth:
+    enabled: false
+
