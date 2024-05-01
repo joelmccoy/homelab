@@ -33,6 +33,8 @@ homepage:
         gethomepage.dev/name: "Lab Joel"
         gethomepage.dev/description: "Welcome to my lab!"
         gethomepage.dev/icon: "homepage.png"
+        traefik.ingress.kubernetes.io/router.middlewares: traefik-forward-auth-to-authentik@kubernetescrd
+
       ingressClassName: "traefik"
       hosts:
         - host: &host "labjoel.com"
