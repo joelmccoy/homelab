@@ -5,6 +5,25 @@ argo-cd:
     params:
       server.insecure: true
       controller.diff.server.side: true
+    cm:
+      # Dex configuration
+      dex.config: |
+        connectors:
+          - type: oidc
+            id: authentik
+            name: authentik
+            config:
+              clientID: ERuaMNfo4vZMfXg44igZzalTQMmaTvsXjzfUgcAM
+              clientSecret: $dex.authentik.clientSecret
+              issuer: https://authentik.labjoel.com/application/o/argocd/
+              scopes:
+                - openid
+                - profile
+                - email
+    rbac:
+      policy: |
+        g, ArgoCD Admins, role:admin
+
   server:
     ingress:
       enabled: true
