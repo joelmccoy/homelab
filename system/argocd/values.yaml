@@ -23,6 +23,7 @@ argo-cd:
     rbac:
       policy.csv: |
         g, ArgoCD Admins, role:admin
+        g, authentik Admins, role:admin
 
   server:
     ingress:
