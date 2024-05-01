@@ -20,6 +20,7 @@ argo-cd:
                 - openid
                 - profile
                 - email
+              insecureEnableGroups: true
     rbac:
       policy.csv: |
         g, ArgoCD Admins, role:admin
