@@ -142,12 +142,10 @@ authentik:
       # -- List of ingress hosts
       hosts: 
         - authentik.labjoel.com
-        - "*.labjoel.com"
 
       # -- List of ingress paths
       paths:
         - /
-        - /outpost.goauthentik.io/
       pathType: Prefix
 
       # -- ingress TLS configuration
