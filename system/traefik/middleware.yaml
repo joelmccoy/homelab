@@ -4,7 +4,7 @@ metadata:
   name: forward-auth-to-authentik
 spec:
   forwardAuth:
-    address: https://authentik.labjoel.com
+    address: https://authentik.labjoel.com/outpost.goauthentik.io/auth/traefik
     authResponseHeaders:
       - X-Auth-Username
       - X-Auth-Groups
