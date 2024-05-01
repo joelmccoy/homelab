@@ -155,7 +155,7 @@ authentik:
             - authentik.labjoel.com
 
       # -- uses `server.service.servicePortHttps` instead of `server.service.servicePortHttp`
-      https: true
+      https: false
 
   ## authentik worker
   worker:
