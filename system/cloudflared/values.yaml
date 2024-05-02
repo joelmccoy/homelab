@@ -21,7 +21,7 @@ app-template:
           metrics: 0.0.0.0:2000
           no-autoupdate: true
           ingress:
-            - hostname: 'grafana.labjoel.com'
+            - hostname: '*.labjoel.com'
               service: https://traefik.kube-system.svc.cluster.local
               originRequest:
                 noTLSVerify: true
