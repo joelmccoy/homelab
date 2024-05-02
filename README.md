@@ -67,6 +67,11 @@ Applications/services core to the cluster
         <td>X.509 certificate management for Kubernetes.</td>
     </tr>
     <tr>
+        <td><img width="32" src="https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/cloudflare-zero-trust.png"></td>
+        <td><a href="https://developers.cloudflare.com/cloudflare-one/">Cloudflare Zero Trust</a></td>
+        <td>Used for private tunnels to expose public services (without requiring a public IP).</td>
+    </tr>
+    <tr>
         <td><img width="32" src="https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/grafana.svg"></td>
         <td><a href="https://grafana.com/">Grafana</a></td>
         <td>The open observability platform.</td>
