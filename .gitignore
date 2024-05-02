@@ -7,5 +7,6 @@
 
 # Ignore secrets
 *secrets.env
+*credentials.json
 
 .DS_Store
