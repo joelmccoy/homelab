@@ -26,7 +26,29 @@ kube-prometheus-stack:
 
   ## Using default values from https://github.com/grafana/helm-charts/blob/main/charts/grafana/values.yaml
   grafana:
+    grafana.ini:
+        auth:
+            signout_redirect_url: "https://authentik.company/application/o/grafana/end-session/"
+            oauth_auto_login: true
+        auth.generic_oauth:
+            name: authentik
+            enabled: true
+            client_id: h7FFUqMBN7oU4ZsI6drVkJmN2Erjxb3MD1g7pcz4
+            client_secret: $__file{/etc/secrets/auth_generic_oauth/client_id}
+            scopes: "openid profile email"
+            auth_url: "https://authentik.labjoel.com/application/o/authorize/"
+            token_url: "https://authentik.labjoel.com/application/o/token/"
+            api_url: "https://authentik.labjoel.com/application/o/userinfo/"
+            role_attribute_path: contains(groups, 'Grafana Admins') && 'Admin' || contains(groups, 'Grafana Editors') && 'Editor' || 'Viewer'
     enabled: true
+
+    extraSecretMounts:
+      - name: auth-generic-oauth-secret-mount
+        secretName: auth-generic-oauth-secret
+        defaultMode: 0440
+        mountPath: /etc/secrets/auth_generic_oauth
+        readOnly: true
+
     ingress:
       enabled: true
       annotations:
