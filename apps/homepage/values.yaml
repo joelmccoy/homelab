@@ -37,7 +37,7 @@ homepage:
 
       ingressClassName: "traefik"
       hosts:
-        - host: &host "labjoel.com"
+        - host: &host "home.labjoel.com"
           paths:
             - path: /
               pathType: Prefix
