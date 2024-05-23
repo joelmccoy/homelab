@@ -23,6 +23,8 @@ renovate:
       }
 
     securityContext:
+      runAsUser: 1000
+      runAsGroup: 1000
       fsGroup: 1000
 
     # -- Use the Helm tpl function on your configuration. See README for how to use this value
