@@ -22,6 +22,9 @@ renovate:
         "repositories": ["joelmccoy/homelab"]
       }
 
+    securityContext:
+      fsGroup: 1000
+
     # -- Use the Helm tpl function on your configuration. See README for how to use this value
     configEnableHelmTpl: true
 
