@@ -8,6 +8,23 @@ home-assistant:
   # Specifies if the containers should be started in hostNetwork mode.
   # Required for use auto-discovery feature of Home Assistant
   hostNetwork: true
+  
+  # Ingress settings
+  ingress:
+    # Enable ingress for home assistant
+    enabled: true
+    className: traefik
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+    hosts:
+      - host: homeassistant.labjoel.com
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+    tls: 
+     - secretName: chart-homeassistant-tls
+       hosts:
+         - homeassistant.labjoel.com
 
   # Persistence values for the Home Assistant instance
   persistence:
@@ -54,7 +71,7 @@ influxdb2:
     # See https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/#specifying-the-class-of-an-ingress
     # className: nginx
     tls: true
-    # secretName: my-tls-cert # only needed if tls above is true or default certificate is not configured for Nginx
+    secretName: influxdb-tls
     hostname: hassinfluxdb.labjoel.com
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
@@ -91,15 +108,4 @@ influxdb2:
     accessMode: ReadWriteOnce
     size: 10Gi
     mountPath: /var/lib/influxdb2
-
-  ingress:
-    enabled: true
-    # For Kubernetes >= 1.18 you should specify the ingress-controller via the field ingressClassName
-    # See https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/#specifying-the-class-of-an-ingress
-    # className: nginx
-    tls: true
-    # secretName: my-tls-cert # only needed if tls above is true or default certificate is not configured for Nginx
-    hostname: hassinfluxdb.labjoel.com
-    annotations:
-      cert-manager.io/cluster-issuer: letsencrypt-prod
 
