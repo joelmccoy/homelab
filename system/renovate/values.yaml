@@ -22,10 +22,6 @@ renovate:
         "repositories": ["joelmccoy/homelab"]
       }
 
-    securityContext:
-      runAsUser: 1000
-      runAsGroup: 1000
-      fsGroup: 1000
 
     # -- Use the Helm tpl function on your configuration. See README for how to use this value
     configEnableHelmTpl: true
@@ -42,4 +38,10 @@ renovate:
 
   # -- k8s secret to reference environment variables from. Overrides secrets if set
   existingSecret: renovate-secret 
+
+  # Pod Level Security Context
+  # needed to have permissions for caching
+  securityContext:
+    fsGroup: 1000
+
 
