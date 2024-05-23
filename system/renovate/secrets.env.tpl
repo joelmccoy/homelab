@@ -1,5 +1,4 @@
 RENOVATE_AUTODISCOVER=false
-RENOVATE_ENDPOINT=https://github.com/api/v3
 RENOVATE_GIT_AUTHOR='Renovate Bot <bot@renovateapp.com>'
 RENOVATE_PLATFORM=github
 RENOVATE_TOKEN=YOURGITHUBPAT
