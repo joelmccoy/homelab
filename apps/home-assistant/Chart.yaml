@@ -5,6 +5,6 @@ dependencies:
   - name: home-assistant
     version: 0.2.51
     repository: https://pajikos.github.io/home-assistant-helm-chart/
-  - name: influx-db
+  - name: influxdb2
     version: 2.1.2
     repository: https://helm.influxdata.com/
