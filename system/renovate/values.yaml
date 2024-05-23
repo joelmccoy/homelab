@@ -1,0 +1,40 @@
+renovate:
+  cronjob:
+    # -- Schedules the job to run using cron notation
+    schedule: '* * * * *'  
+    # -- You can specify a time zone for a CronJob by setting timeZone to the name of a valid time zone. (starting with k8s 1.27) <https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#time-zones>
+    timeZone: 'America/Chicago'  # see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for valid names
+
+  image:
+    # -- Registry to pull image from
+    registry: ghcr.io
+    # -- Image name to pull
+    repository: renovatebot/renovate
+    # -- Renovate image tag to pull
+    tag: 37.375.1
+    # -- "IfNotPresent" to pull the image if no image with the specified tag exists on the node, "Always" to always pull the image or "Never" to try and use pre-pulled images
+    pullPolicy: IfNotPresent
+
+  renovate:
+    # See https://docs.renovatebot.com/self-hosted-configuration
+    config: |
+      {
+        "repositories": ["joelmccoy/homelab"]
+      }
+
+    # -- Use the Helm tpl function on your configuration. See README for how to use this value
+    configEnableHelmTpl: true
+
+    # -- Options related to persistence
+    persistence:
+      cache:
+        # -- Allow the cache to persist between runs
+        enabled: True
+        # -- Storage class of the cache PVC
+        storageClass: "longhorn"
+        # -- Storage size of the cache PVC
+        storageSize: "512Mi"
+
+  # -- k8s secret to reference environment variables from. Overrides secrets if set
+  existingSecret: renovate-secret 
+
