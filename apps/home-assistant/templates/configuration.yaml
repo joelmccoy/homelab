@@ -17,9 +17,9 @@ data:
         - 10.0.0.0/8
     influxdb:
       api_version: 2
-      ssl: false
-      host: home-assistant-influxdb2
-      port: 80
+      ssl: true
+      host: hassinfluxdb.labjoel.com
+      port: 443
       token: influxdb-token
       organization: influxdata
       bucket: default
