@@ -19,8 +19,9 @@ data:
       ssl: false
       host: home-assistant-influxdb2
       port: 80
-      bucket: default
       token: influxdb-token
+      organization: influxdata
+      bucket: default
       tags:
         source: HA
       tags_attributes:
