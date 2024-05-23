@@ -46,3 +46,65 @@ home-assistant:
   - mountPath: /config/configuration.yaml
     subPath: configuration.yaml
     name: configmap-file
+
+influx-db:
+  image:
+    repository: influxdb
+    tag: 2.7.4-alpine
+    pullPolicy: IfNotPresent
+
+  ## Extra environment variables to configure influxdb
+  ## e.g.
+  # env:
+  #   - name: FOO
+  #     value: BAR
+  #   - name: BAZ
+  #     valueFrom:
+  #       secretKeyRef:
+  #         name: my-secret
+  #         key: my-key
+  env: {}
+
+  ## Create default user through docker entrypoint
+  ## Defaults indicated below
+  ##
+  adminUser:
+    organization: "influxdata"
+    bucket: "default"
+    user: "admin"
+    retention_policy: "0s"
+    ## Leave empty to generate a random password and token.
+    ## Or fill any of these values to use fixed values.
+    password: "admin" # Ok with default password, not being exposed
+
+  ## Persist data to a persistent volume
+  ##
+  persistence:
+    enabled: true
+    ## If true will use an existing PVC instead of creating one
+    # useExisting: false
+    ## Name of existing PVC to be used in the influx deployment
+    # name:
+    ## influxdb data Persistent Volume Storage Class
+    ## If defined, storageClassName: <storageClass>
+    ## If set to "-", storageClassName: "", which disables dynamic provisioning
+    ## If undefined (the default) or set to null, no storageClassName spec is
+    ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+    ##   GKE, AWS & OpenStack)
+    ##
+    storageClass: "longhorn"
+    accessMode: ReadWriteOnce
+    size: 10Gi
+    mountPath: /var/lib/influxdb2
+
+  ingress:
+    enabled: true
+    # For Kubernetes >= 1.18 you should specify the ingress-controller via the field ingressClassName
+    # See https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/#specifying-the-class-of-an-ingress
+    # className: nginx
+    tls: true
+    # secretName: my-tls-cert # only needed if tls above is true or default certificate is not configured for Nginx
+    hostname: hassinfluxdb.labjoel.com
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+
