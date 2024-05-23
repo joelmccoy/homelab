@@ -14,3 +14,14 @@ data:
       use_x_forwarded_for: true
       trusted_proxies:
         - 10.0.0.0/8
+    influxdb:
+      api_version: 2
+      ssl: false
+      host: home-assistant-influxdb2
+      port: 80
+      bucket: default
+      tags:
+        source: HA
+      tags_attributes:
+        - friendly_name
+      default_measurement: units
