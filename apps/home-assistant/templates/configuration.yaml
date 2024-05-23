@@ -7,6 +7,7 @@ data:
   automations.yaml: |
   configuration.yaml: |-
     default_config:
+    network_mode: host
     frontend:
       themes: !include_dir_merge_named themes
     automation: !include automations.yaml
