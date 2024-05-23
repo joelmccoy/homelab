@@ -3,7 +3,7 @@ sealed-secrets:
   image:
     registry: docker.io
     repository: bitnami/sealed-secrets-controller
-    tag: 0.26.2
+    tag: 0.26.3
     pullPolicy: IfNotPresent
   secretName: "sealed-secrets-key"
 
