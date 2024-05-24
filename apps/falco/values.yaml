@@ -1,0 +1,72 @@
+falco:
+  ###############################
+  # General deployment settings #
+  ###############################
+  image:
+    pullPolicy: IfNotPresent
+    registry: docker.io
+    repository: falcosecurity/falco-no-driver
+    tag: "0.37.1"
+
+  extra:
+    # -- Extra environment variables that will be pass onto Falco containers.
+    env: []
+    # -- Extra command-line arguments.
+    args: []
+    # -- Additional initContainers for Falco pods.
+    initContainers: []
+
+  # -- For configuration values, see https://github.com/falcosecurity/charts/blob/master/charts/falcosidekick/values.yaml
+  falcosidekick:
+    # -- Enable falcosidekick deployment.
+    enabled: true
+    # -- Enable usage of full FQDN of falcosidekick service (useful when a Proxy is used).
+    fullfqdn: false
+    # -- Listen port. Default value: 2801
+    listenPort: ""
+
+    image:
+      # -- The image registry to pull from
+      registry: docker.io
+      # -- The image repository to pull from
+      repository: falcosecurity/falcosidekick
+      # -- The image tag to pull
+      tag: 2.28.0
+      # -- The image pull policy
+      pullPolicy: IfNotPresent
+      
+    webui:
+      enabled: true
+
+      image:
+        registry: docker.io
+        repository: falcosecurity/falcosidekick-ui
+        tag: "2.2.0"
+        pullPolicy: IfNotPresent
+
+      ingress:
+        enabled: true
+        className: traefik
+        annotations:
+          cert-manager.io/cluster-issuer: letsencrypt-prod
+        hosts:
+          - host: falco.labjoel.com
+            paths:
+              - path: /
+                pathType: ImplementationSpecific
+        tls: 
+         - secretName: falcosidekick-tls
+           hosts:
+             - falco.labjoel.com
+
+  ####################
+  # falcoctl config  #
+  ####################
+  falcoctl:
+    image:
+      registry: docker.io
+      # -- The image repository to pull from.
+      repository: falcosecurity/falcoctl
+      # -- The image tag to pull.
+      tag: "0.7.2"
+
