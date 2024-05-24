@@ -140,7 +140,7 @@ authentik:
       # -- defines which ingress controller will implement the resource
       ingressClassName: "traefik"
       # -- List of ingress hosts
-      hosts: 
+      hosts:
         - authentik.labjoel.com
 
       # -- List of ingress paths
@@ -200,4 +200,3 @@ authentik:
     architecture: standalone
     auth:
       enabled: false
-

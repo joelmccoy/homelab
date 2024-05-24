@@ -90,7 +90,7 @@ app-template:
             DATABASE_HOST: teslamate-postgresql.teslamate.svc.cluster.local
             DATABASE_USER: teslamate
             DATABASE_NAME: teslamate
-            DATABASE_PASS: 
+            DATABASE_PASS:
               valueFrom:
                 secretKeyRef:
                   name: teslamate-secret
@@ -164,7 +164,7 @@ app-template:
         cert-manager.io/cluster-issuer: letsencrypt-prod
         traefik.ingress.kubernetes.io/router.middlewares: traefik-forward-auth-to-authentik@kubernetescrd
       hosts:
-        - host: &host tesladash.labjoel.com
+        - host: *host
           paths:
             - path: /
               service:

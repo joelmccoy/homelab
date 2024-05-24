@@ -37,11 +37,9 @@ renovate:
         storageSize: "512Mi"
 
   # -- k8s secret to reference environment variables from. Overrides secrets if set
-  existingSecret: renovate-secret 
+  existingSecret: renovate-secret
 
   # Pod Level Security Context
   # needed to have permissions for caching
   securityContext:
     fsGroup: 1000
-
-

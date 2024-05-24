@@ -1,14 +1,14 @@
 home-assistant:
   replicaCount: 1
   # Environment variables
-  env: 
+  env:
     - name: TZ
       value: America/Chicago
 
   # Specifies if the containers should be started in hostNetwork mode.
   # Required for use auto-discovery feature of Home Assistant
   hostNetwork: true
-  
+
   # Ingress settings
   ingress:
     # Enable ingress for home assistant
@@ -21,7 +21,7 @@ home-assistant:
         paths:
           - path: /
             pathType: ImplementationSpecific
-    tls: 
+    tls:
      - secretName: chart-homeassistant-tls
        hosts:
          - homeassistant.labjoel.com
@@ -37,7 +37,7 @@ home-assistant:
     # Storage class for the persistent volume claim
     storageClass: "longhorn"
 
-  additionalVolumes: 
+  additionalVolumes:
   - name: configmap-file
     configMap:
       name: home-assistant-configmap
@@ -108,4 +108,3 @@ influxdb2:
     accessMode: ReadWriteOnce
     size: 10Gi
     mountPath: /var/lib/influxdb2
-

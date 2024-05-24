@@ -111,4 +111,3 @@ homepage:
       enabled: true
       type: emptyDir
       mountPath: /app/config/logs
-

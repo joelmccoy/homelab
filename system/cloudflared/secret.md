@@ -9,7 +9,7 @@ Setup the Cloudflare tunnel
 ```bash
 cloudflared tunnel login
 cloudflared tunnel create <NAME>
-cp <PATH_FROM_PREVIOUS_COMMAND> ./credentials.json 
+cp <PATH_FROM_PREVIOUS_COMMAND> ./credentials.json
 ```
 
 

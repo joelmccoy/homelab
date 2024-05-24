@@ -40,7 +40,7 @@ falco:
       entraEnv:
         - name: SLACK_MINIMUMPRIORITY
           value: "warning"
-      
+
     webui:
       enabled: true
 
@@ -60,7 +60,7 @@ falco:
             paths:
               - path: /
                 pathType: ImplementationSpecific
-        tls: 
+        tls:
          - secretName: falcosidekick-tls
            hosts:
              - falco.labjoel.com
@@ -75,4 +75,3 @@ falco:
       repository: falcosecurity/falcoctl
       # -- The image tag to pull.
       tag: "0.7.2"
-

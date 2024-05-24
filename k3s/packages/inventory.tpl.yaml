@@ -6,4 +6,3 @@ ungrouped:
 
   vars:
     ansible_user: hostusername
-

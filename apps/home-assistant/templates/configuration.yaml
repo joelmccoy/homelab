@@ -19,7 +19,7 @@ data:
       ssl: true
       host: hassinfluxdb.labjoel.com
       port: 443
-      token: d4InMfj9fzQujamPxmJX8LDhQe_uSejNl69RKt5lprMIJ-Fzvnq8av1zaztE3GtPea6VeHJbQ6a7xO7gd28w-g== 
+      token: d4InMfj9fzQujamPxmJX8LDhQe_uSejNl69RKt5lprMIJ-Fzvnq8av1zaztE3GtPea6VeHJbQ6a7xO7gd28w-g==
       organization: eacd969295c79dc9
       bucket: default
       tags:

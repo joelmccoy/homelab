@@ -7,7 +7,7 @@ kube-prometheus-stack:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
       hosts: ["alertmanager.labjoel.com"]
-      tls: 
+      tls:
       - secretName: alertmanager-general-tls
         hosts:
         - alertmanager.labjoel.com
@@ -58,7 +58,7 @@ kube-prometheus-stack:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
       hosts: ["grafana.labjoel.com"]
-      tls: 
+      tls:
       - secretName: grafana-general-tls
         hosts:
         - grafana.labjoel.com
@@ -83,7 +83,7 @@ kube-prometheus-stack:
         cert-manager.io/cluster-issuer: letsencrypt-prod
         traefik.ingress.kubernetes.io/router.middlewares: traefik-forward-auth-to-authentik@kubernetescrd
       hosts: ["prometheus.labjoel.com"]
-      tls: 
+      tls:
       - secretName: prometheus-general-tls
         hosts:
         - prometheus.labjoel.com

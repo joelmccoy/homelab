@@ -141,12 +141,11 @@ Deploy ArgoCD to the Kubernetes Cluster
 ```bash
 cd system & make bootstrap
 ```
-> [!NOTE]  
+> [!NOTE]
 > ArgoCD needs setup first so all other apps and tools can be deployed
 
-## :heavy_check_mark: TODO 
+## :heavy_check_mark: TODO
 
 - [x] Setup federated identity for apps
 - [x] Setup cloudflare tunnel for public access
-- [ ] Setup Falco for runtime security
-
+- [x] Setup Falco for runtime security
