@@ -5,7 +5,7 @@ authentik:
       # -- If defined, a repository applied to all authentik deployments
       repository: ghcr.io/goauthentik/server
       # -- Overrides the global authentik whose default is the chart appVersion
-      tag: 2024.4.1
+      tag: 2024.4.2
 
     # -- Toggle and define pod-level security context.
     # @default -- `{}` (See [values.yaml])
