@@ -141,6 +141,7 @@ cd system & make bootstrap
 
 ## :heavy_check_mark: TODO 
 
-- [ ] Setup federated identity for apps
-- [ ] Setup cloudflare tunnel for public access
+- [x] Setup federated identity for apps
+- [x] Setup cloudflare tunnel for public access
+- [ ] Setup Falco for runtime security
 
