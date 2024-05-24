@@ -37,10 +37,9 @@ falco:
 
     config:
       existingSecret: falcosidekick-secret
-
-      slack:
-        outputformat: "all"
-        minimumpriority: "warning"
+      entraEnv:
+        - name: SLACK_MINIMUMPRIORITY
+          value: "warning"
       
     webui:
       enabled: true
