@@ -40,7 +40,7 @@ falco:
 
     slack:
       outputformat: "all"
-      minimumpriority: "WARNING"
+      minimumpriority: "warning"
       
     webui:
       enabled: true
