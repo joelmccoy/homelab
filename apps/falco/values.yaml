@@ -34,6 +34,13 @@ falco:
       tag: 2.28.0
       # -- The image pull policy
       pullPolicy: IfNotPresent
+
+    config:
+      existingSecret: falcosidekick-secret
+
+    slack:
+      outputformat: "all"
+      minimumpriority: "WARNING"
       
     webui:
       enabled: true
