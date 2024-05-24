@@ -87,6 +87,11 @@ Applications/services core to the cluster
         <td>An open-source monitoring system with a dimensional data model, flexible query language, efficient time series database and modern alerting approach.</td>
     </tr>
     <tr>
+        <td><img width="32" src="https://www.svgrepo.com/download/374041/renovate.svg"></td>
+        <td><a href="https://github.com/renovatebot/renovate">Renovate</a></td>
+        <td>Automated dependency updates.</td>
+    </tr>
+    <tr>
         <td><img width="32" src="https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/traefik.svg"></td>
         <td><a href="https://traefik.io/traefik/">Traefik</a></td>
         <td>Used as the Kubernetes ingress controller/reverse proxy.</td>
