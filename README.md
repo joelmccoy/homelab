@@ -27,6 +27,11 @@ End User Applications
         <th>Description</th>
     </tr>
     <tr>
+        <td><img width="32" src="https://www.vectorlogo.zone/logos/falco/falco-icon.svg"></td>
+        <td><a href="https://falco.org/">Falco</a></td>
+        <td>Container runtime security monitoring and alerting.</td>
+    </tr>
+    <tr>
         <td><img width="32" src="https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/home-assistant-alt.svg"></td>
         <td><a href="https://www.home-assistant.io/">Home Assistant</a></td>
         <td>Smart home integrations and automations.</td>
