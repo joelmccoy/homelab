@@ -74,4 +74,4 @@ falco:
       # -- The image repository to pull from.
       repository: falcosecurity/falcoctl
       # -- The image tag to pull.
-      tag: "0.7.2"
+      tag: "0.7.3"
