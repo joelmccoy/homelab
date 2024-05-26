@@ -14,6 +14,7 @@ data:
       use_x_forwarded_for: true
       trusted_proxies:
         - 10.0.0.0/8
+        - 192.168.1.0/24
     influxdb:
       api_version: 2
       ssl: true
