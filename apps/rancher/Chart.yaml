@@ -4,4 +4,4 @@ version: 0.0.0
 dependencies:
   - name: rancher
     version: 2.8.4
-    repository: https://releases.rancher.com/server-charts/stable
+    repository: https://releases.rancher.com/server-charts/latest
