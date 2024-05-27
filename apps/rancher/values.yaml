@@ -1,0 +1,45 @@
+rancher:
+  # Extra environment variables passed to the rancher pods.
+  # extraEnv:
+  # - name: CATTLE_TLS_MIN_VERSION
+  #   value: "1.0"
+
+  # Fully qualified name to reach your Rancher server
+  hostname: rancher.labjoel..com
+
+  ## Optional array of imagePullSecrets containing private registry credentials
+  ## Ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
+  imagePullSecrets: []
+  # - name: secretName
+
+  ### ingress ###
+  # Readme for details and instruction on adding tls secrets.
+  ingress:
+    # If set to false, ingress will not be created
+    # Defaults to true
+    # options: true, false
+    enabled: true
+    includeDefaultExtraAnnotations: true
+    extraAnnotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+    ingressClassName: "traefik"
+    # backend port number
+    servicePort: 80
+
+    # configurationSnippet - Add additional Nginx configuration. This example statically sets a header on the ingress.
+    # configurationSnippet: |
+    #   more_set_input_headers "X-Forwarded-Host: {{ .Values.hostname }}";
+
+    tls:
+      # options: rancher, letsEncrypt, secret
+      source: secret
+      secretName: tls-rancher-ingress
+
+  # Override rancher image location for Air Gap installs
+  rancherImage: rancher/rancher
+  # rancher/rancher image tag. https://hub.docker.com/r/rancher/rancher/tags/
+  rancherImageTag: v2.0.7
+
+  # Number of Rancher server replicas. Setting to negative number will dynamically between 0 and the abs(replicas) based on available nodes.
+  # of available nodes in the cluster
+  replicas: 3
