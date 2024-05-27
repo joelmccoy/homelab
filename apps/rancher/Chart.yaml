@@ -1,7 +1,9 @@
-apiVersion: v2
-name: rancher
-version: 0.0.0
-dependencies:
-  - name: rancher
-    version: 2.8.4
-    repository: https://releases.rancher.com/server-charts/latest
+# Commenting this out until support for 1.29 is done: https://github.com/rancher/rancher/issues/43110
+
+# apiVersion: v2
+# name: rancher
+# version: 0.0.0
+# dependencies:
+#   - name: rancher
+#     version: 2.8.4
+#     repository: https://releases.rancher.com/server-charts/latest
