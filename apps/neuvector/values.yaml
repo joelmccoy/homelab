@@ -5,6 +5,21 @@ core:
   rbac: true # required for rancher authentication
   serviceAccount: default
 
+  global:
+    controller:
+      tag: 5.2.4
+      image: controller
+      registry: docker.io/neuvector
+    manager:
+      tag: 5.2.4
+      image: manager
+      registry: docker.io/neuvector
+    enforcer:
+      tag: 5.2.4
+      image: enforcer
+      registry: docker.io/neuvector
+
+
   controller:
     # If false, controller will not be installed
     enabled: true
@@ -26,6 +41,8 @@ core:
     env:
       ssl: true
       envs: []
+
+    type: ClusterIP # should be set to - ClusterIP
 
     ingress:
       enabled: true
