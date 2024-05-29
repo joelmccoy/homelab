@@ -1,0 +1,10 @@
+apiVersion: v2
+name: neuvector
+version: 0.0.0
+dependencies:
+  - name: crd
+    version: 2.7.6
+    repository: https://neuvector.github.io/neuvector-helm/
+  - name: core
+    version: 2.7.6
+    repository: https://neuvector.github.io/neuvector-helm/

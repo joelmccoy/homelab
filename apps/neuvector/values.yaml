@@ -1,0 +1,38 @@
+core:
+  registry: docker.io
+  tag: 5.3.2
+  psp: false
+  rbac: true # required for rancher authentication
+  serviceAccount: default
+
+  controller:
+    # If false, controller will not be installed
+    enabled: true
+    image:
+      repository: neuvector/controller
+    replicas: 3
+
+    pvc:
+      enabled: true
+      accessModes:
+        - ReadWriteMany
+      storageClass: "longhorn"
+      capacity: 5Gi
+
+  manager:
+    enabled: true
+    image:
+      repository: neuvector/manager
+    env:
+      ssl: true
+      envs: []
+
+    ingress:
+      enabled: true
+      host: neuvector.labjoel.com
+      ingressClassName: "traefik"
+      path: "/"
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+      tls: true
+      secretName: neuvector-tls
