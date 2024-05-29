@@ -39,8 +39,7 @@ core:
     image:
       repository: neuvector/manager
     env:
-      ssl: true
-      envs: []
+      ssl: false
 
     type: ClusterIP # should be set to - ClusterIP
 
