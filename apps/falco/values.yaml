@@ -6,7 +6,7 @@ falco:
     pullPolicy: IfNotPresent
     registry: docker.io
     repository: falcosecurity/falco-no-driver
-    tag: "0.37.1"
+    tag: "0.38.0"
 
   extra:
     # -- Extra environment variables that will be pass onto Falco containers.
