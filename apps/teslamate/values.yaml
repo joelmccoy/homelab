@@ -19,7 +19,7 @@ app-template:
         main:
           image:
             repository: teslamate/teslamate
-            tag: 1.28.5
+            tag: 1.29.1
 
           # -- environment variables. See [teslamate docs](https://docs.teslamate.org/docs/configuration/environment_variables) for more details.
           env:
