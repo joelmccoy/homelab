@@ -3,7 +3,7 @@ name: home-assistant
 version: 0.0.0
 dependencies:
   - name: home-assistant
-    version: 0.2.60
+    version: 0.2.67
     repository: https://pajikos.github.io/home-assistant-helm-chart/
   - name: influxdb2
     version: 2.1.2
