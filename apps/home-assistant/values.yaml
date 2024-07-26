@@ -50,7 +50,7 @@ home-assistant:
 influxdb2:
   image:
     repository: influxdb
-    tag: 2.7.6-alpine
+    tag: 2.7.8-alpine
     pullPolicy: IfNotPresent
 
   ## Extra environment variables to configure influxdb
